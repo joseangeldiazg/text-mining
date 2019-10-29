@@ -1,0 +1,165 @@
+---
+title: "Mineria de Textos debate de Investidura"
+output: html_notebook
+---
+
+En este script, vamos a realizar minería de textos sobre los discursos de los principales representantes de los partidos políticos con representación en el congreso de los diputados de España.
+
+Comenzamos cargando las librerias que usaremos en el resto del script. 
+
+```{r}
+library(tm)
+library(dplyr)
+library(tidytext)
+library(SnowballC)
+library(wordcloud)
+library(ggplot2)
+library(dplyr)
+library(cluster)
+```
+
+
+Ahora vamos a crear nuestro corpus, para ello obtendremos las intervenciones de esta web 
+http://www.congreso.es/portal/page/portal/Congreso/PopUpCGI?CMD=VERLST&BASE=pu13&FMT=PUWTXDTS.fmt&DOCS=1-1&QUERY=%28DSCD-13-PL-5.CODI.%29#(Página9). Es necesario para obtener mayor valor de los datos, crear un dataframe donde tendremos por un lado el autor y por otro el texto. 
+
+Pasamos los factores del texto a caracteres para poder aplicar minería de textos. 
+
+```{r}
+intervenciones$Discurso<-as.character(intervenciones$Discurso)
+```
+
+Vamos a intentar enriquecer el dataset con la orientación política y el nombre del partido en funcion del autor.
+
+```{r}
+intervenciones$Partido <- "PSOE"
+intervenciones$Partido[intervenciones$Autor == "Pablo Casado"] <- "PP"  
+intervenciones$Partido[intervenciones$Autor == "Albert Rivera"] <- "Ciudadanos"  
+intervenciones$Partido[intervenciones$Autor == "Pablo Iglesias"] <- "Podemos" 
+intervenciones$Partido[intervenciones$Autor == "Jaume Asens"] <- "Podemos" 
+intervenciones$Partido[intervenciones$Autor == "Alberto Garzon"] <- "Podemos"
+intervenciones$Partido[intervenciones$Autor == "Yolanda Diaz"] <- "Podemos"
+intervenciones$Partido[intervenciones$Autor == "Santiago Abascal"] <- "VOX"
+intervenciones$Partido[intervenciones$Autor == "Gabriel Rufian"] <- "ERC"
+intervenciones$Partido[intervenciones$Autor == "Aitor Esteban"] <- "PNV"
+intervenciones$Partido[intervenciones$Autor == "Laura Borras"] <- "Junts per Catalunya"
+intervenciones$Partido[intervenciones$Autor == "Oskar Matute"] <- "Bildu"
+intervenciones$Partido[intervenciones$Autor == "Ana Oramas"] <- "Coalición Canaria"
+intervenciones$Partido[intervenciones$Autor == "Carlos Garcia"] <- "Compromis"
+intervenciones$Partido[intervenciones$Autor == "José María Mazón"] <- "PRC"
+intervenciones$Partido<-as.factor(intervenciones$Partido)
+```
+
+Vamos añadir tambien la orientación:
+
+```{r}
+intervenciones$Ideologia <- "Centro Izquierda"
+intervenciones$Ideologia[intervenciones$Autor == "Pablo Casado"] <- "Derecha"  
+intervenciones$Ideologia[intervenciones$Autor == "Albert Rivera"] <- "Centro Derecha"  
+intervenciones$Ideologia[intervenciones$Autor == "Pablo Iglesias"] <- "Izquierda" 
+intervenciones$Ideologia[intervenciones$Autor == "Jaume Asens"] <- "Izquierda" 
+intervenciones$Ideologia[intervenciones$Autor == "Alberto Garzon"] <- "Izquierda"
+intervenciones$Ideologia[intervenciones$Autor == "Yolanda Diaz"] <- "Izquierda"
+intervenciones$Ideologia[intervenciones$Autor == "Santiago Abascal"] <- "Extrema Derecha"
+intervenciones$Ideologia[intervenciones$Autor == "Gabriel Rufian"] <- "Izquierda Independentista"
+intervenciones$Ideologia[intervenciones$Autor == "Aitor Esteban"] <- "Centro Derecha"
+intervenciones$Ideologia[intervenciones$Autor == "Laura Borras"] <- "Izquierda Independentista"
+intervenciones$Ideologia[intervenciones$Autor == "Oskar Matute"] <- "Izquierda Independentista"
+intervenciones$Ideologia[intervenciones$Autor == "Ana Oramas"] <- "Izquierda"
+intervenciones$Ideologia[intervenciones$Autor == "Carlos Garcia"] <- "Izquierda"
+intervenciones$Ideologia<-as.factor(intervenciones$Ideologia)
+```
+
+Vamos a comenzar analizando el discurso del PSOE.
+
+```{r}
+corpusPSOE<- Corpus(VectorSource(intervenciones$Discurso[intervenciones$Partido=="PSOE"]))
+corpusPSOE
+```
+
+Ahora vamos a crear una función de limpieza de datos, para poder reutilizarla luego con otros discursos políticos. Nuestra función llevará a cabo las tareas típicas de pre-procesado en minería de textos:
+
+- Quitaremos espacios extra. 
+- Eliminaremos signos de puntuación. 
+- Pasaremos a minuscula. 
+- Removeremos palabras vacias. 
+
+Es importante mencionar que no eliminaremos números, pues las fechas, articulos de la constitución y demas información es relevante para este conjunto de datos en concreto. 
+
+```{r}
+clean <- function (corpus){
+  corpus <- tm_map(corpus, stripWhitespace)
+  corpus <- tm_map(corpus, removePunctuation)
+  corpus <- tm_map(corpus, content_transformer(tolower))
+  corpus <- tm_map(corpus, removeWords, c(stopwords("es")))
+  corpus
+}
+corpusPSOE<-clean(corpusPSOE)
+```
+
+Vamos a comenzar con una nube de terminos sobre los discursos del PSOE 
+
+```{r}
+wordcloud(corpusPSOE, max.words = 80, random.order = F, colors = brewer.pal(name = "Dark2", n = 8))
+```
+Hay algunas palabras vacias muy evidentes que se pueden desgranar del dominio como: señor, señorias, aplausos, usted, ser... las eliminaremos en la función y volveremos a pintar la nube de palabras.
+
+```{r}
+clean <- function (corpus){
+  corpus <- tm_map(corpus, stripWhitespace)
+  corpus <- tm_map(corpus, removePunctuation)
+  corpus <- tm_map(corpus, content_transformer(tolower))
+  corpus <- tm_map(corpus, removeWords, c(stopwords("es"), "señor", "señorías", "aplausos", "usted", 
+                                          "ser", "pues", "tal", "tan", "así", "dijo", "cómo", "sino", 
+                                          "entonces", "aunque", "don", "doña"))
+  corpus
+}
+corpusPSOE<-clean(corpusPSOE)
+wordcloud(corpusPSOE, max.words = 80, random.order = F, colors = brewer.pal(name = "Dark2", n = 8))
+```
+
+
+Ya tenemos una idea del discurso del partido, ahora Vamos a obtener las palabra más frecuentes, para ello necesitaremos una matriz de frecuencia de términos.
+
+```{r}
+PSOE_dtm<- TermDocumentMatrix(corpusPSOE)
+PSOE_mat<-as.matrix(PSOE_dtm)
+PSOE_mat <- PSOE_mat %>% rowSums() %>% sort(decreasing = TRUE)
+PSOE_mat <- data.frame(palabra = names(PSOE_mat), frec = PSOE_mat)
+```
+
+Ahora ya tenemos las palabras y la suma de sus apariciones, es decir, su frecuencia. Haciendo uso de esa matriz podremos dibujar un gráfico de frecuencias:
+
+```{r}
+PSOE_mat[1:30, ] %>%
+  ggplot(aes(palabra, frec)) +
+  geom_bar(stat = "identity", color = "black", fill = "#87CEFA") +
+  geom_text(aes(hjust = 1.3, label = frec)) + 
+  coord_flip() + 
+  labs(title = "30 palabras más frecuentes usadas por el PSOE",  x = "Palabras", y = "Frecuencia")
+```
+
+Vamos a buscar asociaciones entre palabras, para ello usaremos las relacionadas con los partidos políticos:
+
+```{r}
+findAssocs(PSOE_dtm, terms = c("ciudadanos", "iglesias", "ultraderecha", "casado", "investidura", "popular", "rivera", "podemos"), corlimit = .80)
+```
+
+
+Un dato curioso es que hay mas palabras relacionadas con los "dos socios preferentes" del PSOE a saber, ciudadanos y podemos. Tambien es verdad, que estas palabras son ambiguas porque pueden referirse a partidos o la palabra en si. Para intentar ver las relaciones mejor vamos a usar un clustering jerárquico. 
+
+Para el clustering jerárquico necesitamos usar una matriz de distancias, que nos mida la "distancia" entre dos términos del documento. Hay diversas medidas de distancia, nososotros usaremos la euclidea. 
+
+```{r}
+PSOE_nonsparse <- removeSparseTerms(PSOE_dtm, sparse = .999999)
+PSOE_nonsparse <- as.matrix(PSOE_nonsparse)
+PSOE_nonsparse <- PSOE_nonsparse / rowSums(PSOE_nonsparse)
+PSOE_dist <- dist(PSOE_nonsparse, method = "euclidean")
+```
+
+Una vez creada la matriz de distancias, creamos el cluster y creamos el gráfico:
+
+```{r}
+PSOE_hclust <-  hclust(PSOE_dist, method = "ward.D")
+d1 <- cut(as.dendrogram(PSOE_hclust), h=4)
+plot(d1$lower[[2]], main = "Dendrograma de los discursos del PSOE")
+```

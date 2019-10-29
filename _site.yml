@@ -1,0 +1,12 @@
+name: "Minería de Textos."
+output_dir: "../docs/"
+exclude: [""]
+navbar:
+  title: "Minería de Textos."
+  left:
+    - text: "Inicio"
+      href: index.html
+    - text: "Minería de textos debates"
+      href: discursostm.html
+    - text: "Creación del dataset"
+      href: cargadatos.html

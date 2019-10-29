@@ -1,0 +1,14 @@
+---
+title: "Minería de Textos"
+author: "joseangeldiazg"
+date: "29/10/2019"
+output: html_document
+---
+
+## Información sobre el sitio
+
+Repositorio y web creado para publicar y compartir trabajos sobre minería de textos. En la primera versión, se estudia la creacion de un dataset sobre los discursos políticos de la sesión de investidura así como un pequeño estudio de los discursos del Partido Socialista. En próximas etapas se irá completando el estudio, con comparaciones, clasisificacion de texto...
+
+## Tecnologías usadas
+
+La páqina web ha sido creada mediante R Webpages y R-markdown.
