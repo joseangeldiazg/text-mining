@@ -1,6 +1,6 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output: html_document
 ---
 En este script se carga el dataframe con las intervenciones en el congreso durante el primer discurso de investidura. 
 ```{r}

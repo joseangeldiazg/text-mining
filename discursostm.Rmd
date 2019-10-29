@@ -1,6 +1,6 @@
 ---
 title: "Mineria de Textos debate de Investidura"
-output: html_notebook
+output: html_document
 ---
 
 En este script, vamos a realizar minería de textos sobre los discursos de los principales representantes de los partidos políticos con representación en el congreso de los diputados de España.

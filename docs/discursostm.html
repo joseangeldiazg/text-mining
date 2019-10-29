@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Mineria de Textos debate de Investidura</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Minería de Textos.</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Inicio</a>
+</li>
+<li>
+  <a href="discursostm.html">Minería de textos debates</a>
+</li>
+<li>
+  <a href="cargadatos.html">Creación del dataset</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Mineria de Textos debate de Investidura</h1>
+
+</div>
+
+
+<p>En este script, vamos a realizar minería de textos sobre los discursos de los principales representantes de los partidos políticos con representación en el congreso de los diputados de España.</p>
+<p>Comenzamos cargando las librerias que usaremos en el resto del script.</p>
+<pre class="r"><code>library(tm)</code></pre>
+<pre><code>## Loading required package: NLP</code></pre>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(tidytext)
+library(SnowballC)
+library(wordcloud)</code></pre>
+<pre><code>## Loading required package: RColorBrewer</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggplot2&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:NLP&#39;:
+## 
+##     annotate</code></pre>
+<pre class="r"><code>library(dplyr)
+library(cluster)</code></pre>
+<p>Ahora vamos a crear nuestro corpus, para ello obtendremos las intervenciones de esta web <a href="http://www.congreso.es/portal/page/portal/Congreso/PopUpCGI?CMD=VERLST&amp;BASE=pu13&amp;FMT=PUWTXDTS.fmt&amp;DOCS=1-1&amp;QUERY=%28DSCD-13-PL-5.CODI.%29#(Página9)">http://www.congreso.es/portal/page/portal/Congreso/PopUpCGI?CMD=VERLST&amp;BASE=pu13&amp;FMT=PUWTXDTS.fmt&amp;DOCS=1-1&amp;QUERY=%28DSCD-13-PL-5.CODI.%29#(Página9)</a>. Es necesario para obtener mayor valor de los datos, crear un dataframe donde tendremos por un lado el autor y por otro el texto.</p>
+<p>Pasamos los factores del texto a caracteres para poder aplicar minería de textos.</p>
+<pre class="r"><code>intervenciones$Discurso&lt;-as.character(intervenciones$Discurso)</code></pre>
+<p>Vamos a intentar enriquecer el dataset con la orientación política y el nombre del partido en funcion del autor.</p>
+<pre class="r"><code>intervenciones$Partido &lt;- &quot;PSOE&quot;
+intervenciones$Partido[intervenciones$Autor == &quot;Pablo Casado&quot;] &lt;- &quot;PP&quot;  
+intervenciones$Partido[intervenciones$Autor == &quot;Albert Rivera&quot;] &lt;- &quot;Ciudadanos&quot;  
+intervenciones$Partido[intervenciones$Autor == &quot;Pablo Iglesias&quot;] &lt;- &quot;Podemos&quot; 
+intervenciones$Partido[intervenciones$Autor == &quot;Jaume Asens&quot;] &lt;- &quot;Podemos&quot; 
+intervenciones$Partido[intervenciones$Autor == &quot;Alberto Garzon&quot;] &lt;- &quot;Podemos&quot;
+intervenciones$Partido[intervenciones$Autor == &quot;Yolanda Diaz&quot;] &lt;- &quot;Podemos&quot;
+intervenciones$Partido[intervenciones$Autor == &quot;Santiago Abascal&quot;] &lt;- &quot;VOX&quot;
+intervenciones$Partido[intervenciones$Autor == &quot;Gabriel Rufian&quot;] &lt;- &quot;ERC&quot;
+intervenciones$Partido[intervenciones$Autor == &quot;Aitor Esteban&quot;] &lt;- &quot;PNV&quot;
+intervenciones$Partido[intervenciones$Autor == &quot;Laura Borras&quot;] &lt;- &quot;Junts per Catalunya&quot;
+intervenciones$Partido[intervenciones$Autor == &quot;Oskar Matute&quot;] &lt;- &quot;Bildu&quot;
+intervenciones$Partido[intervenciones$Autor == &quot;Ana Oramas&quot;] &lt;- &quot;Coalición Canaria&quot;
+intervenciones$Partido[intervenciones$Autor == &quot;Carlos Garcia&quot;] &lt;- &quot;Compromis&quot;
+intervenciones$Partido[intervenciones$Autor == &quot;José María Mazón&quot;] &lt;- &quot;PRC&quot;
+intervenciones$Partido&lt;-as.factor(intervenciones$Partido)</code></pre>
+<p>Vamos añadir tambien la orientación:</p>
+<pre class="r"><code>intervenciones$Ideologia &lt;- &quot;Centro Izquierda&quot;
+intervenciones$Ideologia[intervenciones$Autor == &quot;Pablo Casado&quot;] &lt;- &quot;Derecha&quot;  
+intervenciones$Ideologia[intervenciones$Autor == &quot;Albert Rivera&quot;] &lt;- &quot;Centro Derecha&quot;  
+intervenciones$Ideologia[intervenciones$Autor == &quot;Pablo Iglesias&quot;] &lt;- &quot;Izquierda&quot; 
+intervenciones$Ideologia[intervenciones$Autor == &quot;Jaume Asens&quot;] &lt;- &quot;Izquierda&quot; 
+intervenciones$Ideologia[intervenciones$Autor == &quot;Alberto Garzon&quot;] &lt;- &quot;Izquierda&quot;
+intervenciones$Ideologia[intervenciones$Autor == &quot;Yolanda Diaz&quot;] &lt;- &quot;Izquierda&quot;
+intervenciones$Ideologia[intervenciones$Autor == &quot;Santiago Abascal&quot;] &lt;- &quot;Extrema Derecha&quot;
+intervenciones$Ideologia[intervenciones$Autor == &quot;Gabriel Rufian&quot;] &lt;- &quot;Izquierda Independentista&quot;
+intervenciones$Ideologia[intervenciones$Autor == &quot;Aitor Esteban&quot;] &lt;- &quot;Centro Derecha&quot;
+intervenciones$Ideologia[intervenciones$Autor == &quot;Laura Borras&quot;] &lt;- &quot;Izquierda Independentista&quot;
+intervenciones$Ideologia[intervenciones$Autor == &quot;Oskar Matute&quot;] &lt;- &quot;Izquierda Independentista&quot;
+intervenciones$Ideologia[intervenciones$Autor == &quot;Ana Oramas&quot;] &lt;- &quot;Izquierda&quot;
+intervenciones$Ideologia[intervenciones$Autor == &quot;Carlos Garcia&quot;] &lt;- &quot;Izquierda&quot;
+intervenciones$Ideologia&lt;-as.factor(intervenciones$Ideologia)</code></pre>
+<p>Vamos a comenzar analizando el discurso del PSOE.</p>
+<pre class="r"><code>corpusPSOE&lt;- Corpus(VectorSource(intervenciones$Discurso[intervenciones$Partido==&quot;PSOE&quot;]))
+corpusPSOE</code></pre>
+<pre><code>## &lt;&lt;SimpleCorpus&gt;&gt;
+## Metadata:  corpus specific: 1, document level (indexed): 0
+## Content:  documents: 15</code></pre>
+<p>Ahora vamos a crear una función de limpieza de datos, para poder reutilizarla luego con otros discursos políticos. Nuestra función llevará a cabo las tareas típicas de pre-procesado en minería de textos:</p>
+<ul>
+<li>Quitaremos espacios extra.</li>
+<li>Eliminaremos signos de puntuación.</li>
+<li>Pasaremos a minuscula.</li>
+<li>Removeremos palabras vacias.</li>
+</ul>
+<p>Es importante mencionar que no eliminaremos números, pues las fechas, articulos de la constitución y demas información es relevante para este conjunto de datos en concreto.</p>
+<pre class="r"><code>clean &lt;- function (corpus){
+  corpus &lt;- tm_map(corpus, stripWhitespace)
+  corpus &lt;- tm_map(corpus, removePunctuation)
+  corpus &lt;- tm_map(corpus, content_transformer(tolower))
+  corpus &lt;- tm_map(corpus, removeWords, c(stopwords(&quot;es&quot;)))
+  corpus
+}
+corpusPSOE&lt;-clean(corpusPSOE)</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus, stripWhitespace): transformation
+## drops documents</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus, removePunctuation): transformation
+## drops documents</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus, content_transformer(tolower)):
+## transformation drops documents</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus, removeWords, c(stopwords(&quot;es&quot;))):
+## transformation drops documents</code></pre>
+<p>Vamos a comenzar con una nube de terminos sobre los discursos del PSOE</p>
+<pre class="r"><code>wordcloud(corpusPSOE, max.words = 80, random.order = F, colors = brewer.pal(name = &quot;Dark2&quot;, n = 8))</code></pre>
+<p><img src="discursostm_files/figure-html/unnamed-chunk-7-1.png" width="672" /> Hay algunas palabras vacias muy evidentes que se pueden desgranar del dominio como: señor, señorias, aplausos, usted, ser… las eliminaremos en la función y volveremos a pintar la nube de palabras.</p>
+<pre class="r"><code>clean &lt;- function (corpus){
+  corpus &lt;- tm_map(corpus, stripWhitespace)
+  corpus &lt;- tm_map(corpus, removePunctuation)
+  corpus &lt;- tm_map(corpus, content_transformer(tolower))
+  corpus &lt;- tm_map(corpus, removeWords, c(stopwords(&quot;es&quot;), &quot;señor&quot;, &quot;señorías&quot;, &quot;aplausos&quot;, &quot;usted&quot;, 
+                                          &quot;ser&quot;, &quot;pues&quot;, &quot;tal&quot;, &quot;tan&quot;, &quot;así&quot;, &quot;dijo&quot;, &quot;cómo&quot;, &quot;sino&quot;, 
+                                          &quot;entonces&quot;, &quot;aunque&quot;, &quot;don&quot;, &quot;doña&quot;))
+  corpus
+}
+corpusPSOE&lt;-clean(corpusPSOE)</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus, stripWhitespace): transformation
+## drops documents</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus, removePunctuation): transformation
+## drops documents</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus, content_transformer(tolower)):
+## transformation drops documents</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus, removeWords, c(stopwords(&quot;es&quot;),
+## &quot;señor&quot;, : transformation drops documents</code></pre>
+<pre class="r"><code>wordcloud(corpusPSOE, max.words = 80, random.order = F, colors = brewer.pal(name = &quot;Dark2&quot;, n = 8))</code></pre>
+<p><img src="discursostm_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Ya tenemos una idea del discurso del partido, ahora Vamos a obtener las palabra más frecuentes, para ello necesitaremos una matriz de frecuencia de términos.</p>
+<pre class="r"><code>PSOE_dtm&lt;- TermDocumentMatrix(corpusPSOE)
+PSOE_mat&lt;-as.matrix(PSOE_dtm)
+PSOE_mat &lt;- PSOE_mat %&gt;% rowSums() %&gt;% sort(decreasing = TRUE)
+PSOE_mat &lt;- data.frame(palabra = names(PSOE_mat), frec = PSOE_mat)</code></pre>
+<p>Ahora ya tenemos las palabras y la suma de sus apariciones, es decir, su frecuencia. Haciendo uso de esa matriz podremos dibujar un gráfico de frecuencias:</p>
+<pre class="r"><code>PSOE_mat[1:30, ] %&gt;%
+  ggplot(aes(palabra, frec)) +
+  geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, fill = &quot;#87CEFA&quot;) +
+  geom_text(aes(hjust = 1.3, label = frec)) + 
+  coord_flip() + 
+  labs(title = &quot;30 palabras más frecuentes usadas por el PSOE&quot;,  x = &quot;Palabras&quot;, y = &quot;Frecuencia&quot;)</code></pre>
+<p><img src="discursostm_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Vamos a buscar asociaciones entre palabras, para ello usaremos las relacionadas con los partidos políticos:</p>
+<pre class="r"><code>findAssocs(PSOE_dtm, terms = c(&quot;ciudadanos&quot;, &quot;iglesias&quot;, &quot;ultraderecha&quot;, &quot;casado&quot;, &quot;investidura&quot;, &quot;popular&quot;, &quot;rivera&quot;, &quot;podemos&quot;), corlimit = .80)</code></pre>
+<pre><code>## $ciudadanos
+##         importante             madrid         democracia 
+##               0.96               0.95               0.93 
+##               bien        candidatura            civiles 
+##               0.92               0.91               0.91 
+##               cuya         diferencia              digna 
+##               0.91               0.91               0.91 
+##          eutanasia               huir         igualmente 
+##               0.91               0.91               0.91 
+##              lleno            revisar              según 
+##               0.91               0.91               0.91 
+##          siguiendo          apuntalar          bloqueada 
+##               0.91               0.90               0.90 
+##          colectivo constitucionalismo         contribuye 
+##               0.90               0.90               0.90 
+##               cree         cuestionar              deseo 
+##               0.90               0.90               0.90 
+##          discursos            evasión             faltar 
+##               0.90               0.90               0.90 
+##         lacerantes             llamar             marcos 
+##               0.90               0.90               0.90 
+##              marzo         maternidad             muerte 
+##               0.90               0.90               0.90 
+##             padres            piensan           teléfono 
+##               0.90               0.90               0.90 
+##                000              decir         diversidad 
+##               0.89               0.89               0.89 
+##             marcha           públicos         referencia 
+##               0.89               0.89               0.89 
+##              todas           anterior              atrás 
+##               0.89               0.88               0.88 
+##              ciclo              euros               idea 
+##               0.88               0.88               0.88 
+##       trabajadoras              verde           aquellas 
+##               0.88               0.88               0.87 
+##               aquí         corrupción            mandato 
+##               0.87               0.87               0.87 
+##                dar              forma           personal 
+##               0.86               0.86               0.86 
+##           carreras             ciudad       consecuencia 
+##               0.85               0.85               0.85 
+##             hombre      institucional             quinto 
+##               0.85               0.85               0.85 
+##             riesgo              tener              lgtbi 
+##               0.85               0.85               0.84 
+##               pido          reconocer            semanas 
+##               0.84               0.84               0.84 
+##        territorios           derechos          educativo 
+##               0.84               0.83               0.83 
+##              menos              mismo                vez 
+##               0.83               0.83               0.83 
+##               cada              datos        democrática 
+##               0.82               0.82               0.82 
+##           familias         finalmente          formación 
+##               0.82               0.82               0.82 
+##               hace                mal              mejor 
+##               0.82               0.82               0.82 
+##          población           política              sufre 
+##               0.82               0.82               0.82 
+##            aumento          autónomos       comunicación 
+##               0.81               0.81               0.81 
+##          económico        estabilidad          feminismo 
+##               0.81               0.81               0.81 
+##             género               plan              poder 
+##               0.81               0.81               0.81 
+##             puesto             cuales               solo 
+##               0.81               0.80               0.80 
+##          violencia 
+##               0.80 
+## 
+## $iglesias
+## vicepresidencia     agricultura         conozco       contenido 
+##            0.94            0.94            0.94            0.94 
+##         dirigir          equipo         impedir   prácticamente 
+##            0.94            0.94            0.94            0.94 
+##           áreas      presidente           gasto      ministerio 
+##            0.94            0.91            0.90            0.89 
+##      izquierdas       ofrecimos            dije         sanidad 
+##            0.89            0.87            0.86            0.84 
+##     negociación       controlar        hacienda          asumir 
+##            0.83            0.83            0.83            0.82 
+##          quería          exigía 
+##            0.82            0.81 
+## 
+## $ultraderecha
+##      apoyados        pactar         visto        cordón planteamiento 
+##          0.94          0.94          0.94          0.92          0.88 
+##        puesto        murcia        señora 
+##          0.84          0.84          0.81 
+## 
+## $casado
+## integridad  planteado      echar  protestas    rumores    dependa 
+##       0.92       0.92       0.89       0.87       0.83       0.80 
+## 
+## $investidura
+##      gobierno incorporación       embargo          unir 
+##          0.82          0.82          0.80          0.80 
+## 
+## $popular
+##    planteado      rumores intervención 
+##         0.87         0.83         0.80 
+## 
+## $rivera
+##            176          abajo     abandonado      abrazarse      accidente 
+##           0.99           0.99           0.99           0.99           0.99 
+##      aconteció      acordamos  acostumbrados          adiós    adolescente 
+##           0.99           0.99           0.99           0.99           0.99 
+##     adversario         afijos         alegro        aplauda    apresurarse 
+##           0.99           0.99           0.99           0.99           0.99 
+##      aprobados      arrimadas          atado      aznarista         azules 
+##           0.99           0.99           0.99           0.99           0.99 
+##          banda        bloquea     caprichoso         cargos          cauce 
+##           0.99           0.99           0.99           0.99           0.99 
+##      centrismo      chaquetas          coger         cogido       colación 
+##           0.99           0.99           0.99           0.99           0.99 
+##       colegios           come          comer       comulgan        conmigo 
+##           0.99           0.99           0.99           0.99           0.99 
+##    conservador contraviniendo     convertido   cuestionando        cuántos 
+##           0.99           0.99           0.99           0.99           0.99 
+##         darnos     declararse        dejaron           deje      demostrar 
+##           0.99           0.99           0.99           0.99           0.99 
+##    descalifica     despachado       despachó       dirigido          diría 
+##           0.99           0.99           0.99           0.99           0.99 
+## disquisiciones     doscientas           díaz           díez         echado 
+##           0.99           0.99           0.99           0.99           0.99 
+##         echara       educando          entra    equivocando        escucha 
+##           0.99           0.99           0.99           0.99           0.99 
+## especulaciones     especulado       etiqueta      etiquetas     facilitado 
+##           0.99           0.99           0.99           0.99           0.99 
+##       fascista      fascistas     feministas        formado       francesc 
+##           0.99           0.99           0.99           0.99           0.99 
+##          frase       funciona     fundadores        ganando            gay 
+##           0.99           0.99           0.99           0.99           0.99 
+##       golpista          grave          gusta          hable        huyeron 
+##           0.99           0.99           0.99           0.99           0.99 
+##      impuestos      infórmese        insulta       insultar   intermitente 
+##           0.99           0.99           0.99           0.99           0.99 
+##      justifica       laminado            lea   legislativas        liberal 
+##           0.99           0.99           0.99           0.99           0.99 
+##    liberalismo         listas       luchando  manifestación         mantra 
+##           0.99           0.99           0.99           0.99           0.99 
+##         marfil    menosprecio         mienta        minoría         montar 
+##           0.99           0.99           0.99           0.99           0.99 
+##         monten      muchísimo        negocio         negras        obedece 
+##           0.99           0.99           0.99           0.99           0.99 
+##       obedecen         oponer          pacta        pagando        papeles 
+##           0.99           0.99           0.99           0.99           0.99 
+##        parezca        peleado      peligrosa       pensaban           peor 
+##           0.99           0.99           0.99           0.99           0.99 
+##     periférico     permanecen        piensen    preguntarse      propiedad 
+##           0.99           0.99           0.99           0.99           0.99 
+##           puro        quedara    recaudación       rechazar         recibí 
+##           0.99           0.99           0.99           0.99           0.99 
+##        resisto        respeta         reunir       reunirse     reversible 
+##           0.99           0.99           0.99           0.99           0.99 
+##          rojos         roldán        sablazo          sabía           saca 
+##           0.99           0.99           0.99           0.99           0.99 
+##     sanchistas      sistémica           sube      subrogada         teatro 
+##           0.99           0.99           0.99           0.99           0.99 
+##        tezanos         tomado          torre       utilicen          verle 
+##           0.99           0.99           0.99           0.99           0.99 
+##       vigentes           vote          ¡dice        ¿lidera   nacionalismo 
+##           0.99           0.99           0.99           0.99           0.94 
+##      centrista        ocasión       abstenga          luego          coste 
+##           0.92           0.91           0.91           0.88           0.88 
+##       intentar        interno       pactando          valls      lecciones 
+##           0.88           0.88           0.88           0.88           0.87 
+##         dejado       abrazado   insoportable        intenso         ningún 
+##           0.87           0.86           0.86           0.86           0.86 
+##         murcia        escuche          viene       facilite 
+##           0.85           0.84           0.82           0.82 
+## 
+## $podemos
+##       distintos      incorporar          unidas         acuerdo 
+##            0.98            0.98            0.96            0.95 
+##            voto     dependencia       distintas     tradiciones 
+##            0.94            0.92            0.92            0.92 
+##       agradecer      autonomías      contenidos      escenarios 
+##            0.91            0.91            0.91            0.91 
+##     formaciones         hacemos     importantes          merece 
+##            0.91            0.91            0.91            0.91 
+##       políticas       preguntas        reproche           cosas 
+##            0.91            0.91            0.91            0.90 
+##     cooperación         después         dijeron           haber 
+##            0.89            0.89            0.89            0.89 
+##           saben        absoluta           gente           junio 
+##            0.89            0.87            0.87            0.87 
+##          muchas       ocasiones        culturas           manos 
+##            0.87            0.87            0.87            0.87 
+##           ¿cuál       analistas           becas     coincidimos 
+##            0.87            0.86            0.86            0.86 
+##     constituido      constituye     contribuyan         dejando 
+##            0.86            0.86            0.86            0.86 
+##     democrático       diferente          elevar     empresarias 
+##            0.86            0.86            0.86            0.86 
+##     empresarios      garantizan     generosidad          gestos 
+##            0.86            0.86            0.86            0.86 
+##           hacía         llamado         mayoría           mirar 
+##            0.86            0.86            0.86            0.86 
+##         parados          podrán        pregunto         quieran 
+##            0.86            0.86            0.86            0.86 
+##     reivindicar     revitalizar   universalidad        urgentes 
+##            0.86            0.86            0.86            0.86 
+##         insisto        ofrecido            días       políticos 
+##            0.86            0.86            0.85            0.85 
+##         reforma   entendimiento    ayuntamiento       barcelona 
+##            0.85            0.85            0.84            0.84 
+##        defender     defendiendo   ayuntamientos            lado 
+##            0.84            0.84            0.83            0.83 
+##      convocados            creo          crisis           hecho 
+##            0.82            0.82            0.82            0.82 
+## responsabilidad          sesión  administración         capital 
+##            0.82            0.82            0.81            0.81 
+##        decirles         derogar           urnas          votada 
+##            0.81            0.81            0.81            0.81 
+##       significa       coalición        acuerdos          cuatro 
+##            0.81            0.81            0.80            0.80</code></pre>
+<p>Un dato curioso es que hay mas palabras relacionadas con los “dos socios preferentes” del PSOE a saber, ciudadanos y podemos. Tambien es verdad, que estas palabras son ambiguas porque pueden referirse a partidos o la palabra en si. Para intentar ver las relaciones mejor vamos a usar un clustering jerárquico.</p>
+<p>Para el clustering jerárquico necesitamos usar una matriz de distancias, que nos mida la “distancia” entre dos términos del documento. Hay diversas medidas de distancia, nososotros usaremos la euclidea.</p>
+<pre class="r"><code>PSOE_nonsparse &lt;- removeSparseTerms(PSOE_dtm, sparse = .999999)
+PSOE_nonsparse &lt;- as.matrix(PSOE_nonsparse)
+PSOE_nonsparse &lt;- PSOE_nonsparse / rowSums(PSOE_nonsparse)
+PSOE_dist &lt;- dist(PSOE_nonsparse, method = &quot;euclidean&quot;)</code></pre>
+<p>Una vez creada la matriz de distancias, creamos el cluster y creamos el gráfico:</p>
+<pre class="r"><code>PSOE_hclust &lt;-  hclust(PSOE_dist, method = &quot;ward.D&quot;)
+d1 &lt;- cut(as.dendrogram(PSOE_hclust), h=4)
+plot(d1$lower[[2]], main = &quot;Dendrograma de los discursos del PSOE&quot;)</code></pre>
+<p><img src="discursostm_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
